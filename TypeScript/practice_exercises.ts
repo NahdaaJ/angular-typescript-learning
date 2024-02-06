@@ -9,3 +9,4 @@ let myFloatNum: number = 123.43
 console.log(myFloatNum)
 
 // Define an array of strings and populate it with at least three city names.
+// Test
