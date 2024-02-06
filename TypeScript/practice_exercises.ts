@@ -47,3 +47,44 @@ function sumOfArray(...numbers: number[]): number{
 
 let mySum = sumOfArray(1,2,3,4,5);
 console.log(mySum);
+
+// EXERCISE 3 - INTERFACES AND OBJECTS++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Create an interface representing a person with properties for name, age, and address.
+interface Person {
+  name: string, 
+  age: number, 
+  address?: string,
+}
+
+// Write a function that takes an object implementing the person interface and prints out a greeting using the person's name and age.
+function printGreeting(personObject: Person): void{
+  console.log(`Hello ${personObject.name}! How does it feel to be ${personObject.age}?`)
+}
+
+let myPerson: Person = {
+  name: "Nahdaa",
+  age: 24, 
+}
+printGreeting(myPerson)
+
+// Extend the previous interface to include an array of hobbies. Update the function to display the person's hobbies as well.
+
+interface Interests extends Person {
+  hobbies: string[],
+}
+
+function printGreeting2(personObject: Interests): void{
+  console.log(`Hello ${personObject.name}! How does it feel to be ${personObject.age}? I heard you like:`);
+  for (let i = 0; i < personObject.hobbies.length; i++){
+    console.log(`- ${personObject.hobbies[i]},`);
+  }
+}
+
+let myPerson2: Interests = {
+  name: "Nahdaa",
+  age: 24,
+  hobbies: ["Nails", "Coding", "Gaming"]
+};
+
+printGreeting2(myPerson2);
