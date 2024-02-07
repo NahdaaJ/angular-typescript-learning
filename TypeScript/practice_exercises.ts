@@ -304,3 +304,103 @@ let myRectangle = new Rectangle(10,5);
 let myRectangleArea = myRectangle.CalculateArea().toFixed(2);
 let myRectanglePerimeter = myRectangle.CalculatePerimeter().toFixed(2);
 console.log(`Rectangle Area: ${myRectangleArea}\t\t\tRectangle Perimeter: ${myRectanglePerimeter}`)
+
+// EXERCISE 5 - GENERICS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+console.log("\n\n============================== Exercise 5 ==============================")
+
+// Write a generic function that reverses the elements of an array.
+function reverseArray<T>(inputArray: T[]): T[] {
+  let outputArray: T[] = [];
+
+  for (let i = 0; i < inputArray.length; i++) {
+    outputArray.unshift(inputArray[i]);
+  }
+
+  return outputArray;
+}
+
+let myArray1 = ["Hello", "Bye", "Good Morning"];
+let myArray2 = [1,2,3,4,5];
+let myArray3 = [true, false, false];
+
+let reverseMyArray1 = reverseArray(myArray1);
+let reverseMyArray2 = reverseArray(myArray2);
+let reverseMyArray3 = reverseArray(myArray3);
+
+console.log(reverseMyArray1)
+console.log(reverseMyArray2)
+console.log(reverseMyArray3)
+
+
+// Create a generic class representing a stack. Implement methods to push, pop, and check if the stack is empty.
+console.log("\n\n")
+class Stack<T> {
+  private currentStack: T[] = [];
+
+  constructor(...startingStack: T[]) {
+    this.currentStack = startingStack;
+  }
+
+  Push(newElement: T){
+    this.currentStack.unshift(newElement);
+  }
+
+  Pop(): T | undefined{
+
+    if (this.currentStack.length == 0){
+      console.log("\nStack is empty.")
+      return undefined;
+    }
+
+    let element: T = this.currentStack.shift() as T; // Using as T for assertion
+    return element;
+  }
+
+  CheckStack(): void {
+    if (this.currentStack.length == 0){
+      console.log("\nStack is empty.")
+    }
+    else{
+      console.log("\nCurrently in stack:");
+      for (let i =0; i < this.currentStack.length; i++){
+        console.log(this.currentStack[i])
+      }
+    }
+  }
+}
+
+let myNumStack = new Stack(1,2,3,4);
+myNumStack.Push(10);
+myNumStack.Push(15);
+myNumStack.CheckStack();
+let numStackFirstElement = myNumStack.Pop();
+console.log(numStackFirstElement)
+myNumStack.CheckStack();
+
+let myStringStack = new Stack("A", "B", "C");
+myStringStack.Push("X");
+myStringStack.Push("Y");
+myStringStack.CheckStack();
+let stringStackFirstElement = myStringStack.Pop();
+console.log(stringStackFirstElement)
+myStringStack.CheckStack();
+
+
+// Write a generic function that takes an array of any type and returns a new array with only unique values.
+
+function distinctArray<T>(...inputArray: T[]): T[] {
+  let distinctArray: T[] = [];
+
+  for (let i = 0; i < inputArray.length; i++){
+    if (!distinctArray.includes(inputArray[i])){
+      distinctArray.push(inputArray[i])
+    }
+  }
+  return distinctArray
+}
+
+let distinctNumArray = distinctArray(1,2,4,5,6,7,5,5,5,7,7,7,7,2,2,2,1);
+let distinctStringArray = distinctArray("Hello", "Bye", "bye", "bye", "Hello", "Good Morning");
+
+console.log(distinctNumArray);
+console.log(distinctStringArray);
