@@ -3,6 +3,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#about-this-repository">About This Repository</a>
+    <li><a href="#learning-projects">Learning Projects</a>
     <li><a href="#topics-i-have-covered">Topics I Have Covered</a>
     <li><a href="#contact">Contact</a>
   </ol>
@@ -14,6 +15,11 @@
   <a href="https://grove-earth-4e4.notion.site/TypeScript-8c92fef69f2e47aab41e7cd26fd56ef1?pvs=4">My TypeScript Notes</a> | <a href="https://grove-earth-4e4.notion.site/Angular-15280b9104a54a109aae31279cd66506?pvs=4">My Angular Notes</a>
 </div>
 This repository contains exercises and demos I have and will be doing whilst learning TypeScript and Angular for work. My learning is currently in progress.
+
+## 🌸Learning Projects
+To learn Angular 17, I am creating projects to practice:
+<ul>
+  <li>Project 1 - <a href="https://github.com/NahdaaJ/angular-appointment-app">Appointment App</a>
 
 ## 🌸Topics I Have Covered
 ### TypeScript:
